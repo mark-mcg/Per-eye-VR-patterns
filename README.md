@@ -1,9 +1,12 @@
 # Introduction
 
-This project can show images (e.g. alpha channel .pngs) with different background colours per-eye for a specified number of frames. For an example pattern that is run on start, see PatternSequence game object.
+This project can show images (e.g. alpha channel .pngs) with different background colours per-eye for a specified number of frames. Open up the scene in the "Mark" directory and run it for an example. 
 
-![Pattern](screenshots/1.png "Example of a pattern where different images with different colour backgrounds are displayed, each for a duration of 1 frame, before the pattern loops.")
+![Example pattern as defined in the Unity Editor view.](screenshots/1.png "Example of a pattern where different images with different colour backgrounds are displayed, each for a duration of 1 frame, before the pattern loops.")
 
+# Requirements
+
+Tested on Unity 2017.3.0 using an Oculus Rift CV1.
 
 # Notes
 
