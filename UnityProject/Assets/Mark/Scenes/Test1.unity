@@ -226,7 +226,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1079045304}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -315,6 +315,7 @@ MonoBehaviour:
     camera: {fileID: 1079045304}
     image: {fileID: 1059183774}
   DefaultBackground: {r: 0, g: 0, b: 1, a: 1}
+  ResetBothEyesOnNewPattern: 1
 --- !u!20 &485452839 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20000012175207052, guid: 126d619cf4daa52469682f85c1378b4a,
@@ -396,27 +397,43 @@ Prefab:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_TargetEye
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294966527
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: usePerEyeCameras
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010189485334, guid: 126d619cf4daa52469682f85c1378b4a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000012175207052, guid: 126d619cf4daa52469682f85c1378b4a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &922446151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c011637fb4c894c56a9178092966b5ac, type: 3}
-  m_Name: 6f6e0fed-4c79-4eb8-a60a-04c1cf45ce98
-  m_EditorClassIdentifier: 
-  m_DisplayName: Animation
-  m_Id: a4f31f2d-df71-47ea-9115-2d4e0799ddb1
-  gameObject: {fileID: 0}
-  enabled: 0
-  recursive: 1
-  fold: 1
-  bindingTypeName: []
 --- !u!1 &925126862
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,10 +580,10 @@ RectTransform:
   m_Father: {fileID: 131462890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059183777
 MonoBehaviour:
@@ -579,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 0
+  m_AspectMode: 3
   m_AspectRatio: 1
 --- !u!20 &1079045304 stripped
 Camera:
@@ -626,13 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Settings:
-  - {fileID: 922446151}
---- !u!20 &1377953049 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a,
-    type: 2}
-  m_PrefabInternal: {fileID: 729731568}
 --- !u!1 &1435133920
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,8 +769,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1377953049}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 485452839}
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -830,19 +840,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patterns:
-  - frames: 1
+  - frames: 5
     eye: 0
     background: {r: 0, g: 1, b: 0.13103461, a: 0}
     image: {fileID: 21300000, guid: 47c4e290d11260749a572b1974f23ba0, type: 3}
-  - frames: 1
+  - frames: 5
     eye: 0
     background: {r: 0, g: 0, b: 0, a: 0}
     image: {fileID: 21300000, guid: 551466acf33272946b30166c89897cee, type: 3}
-  - frames: 1
+  - frames: 5
     eye: 0
     background: {r: 1, g: 0, b: 0, a: 0}
     image: {fileID: 21300000, guid: 47c4e290d11260749a572b1974f23ba0, type: 3}
-  - frames: 1
+  - frames: 5
     eye: 0
     background: {r: 0, g: 0, b: 0, a: 0}
     image: {fileID: 21300000, guid: 551466acf33272946b30166c89897cee, type: 3}

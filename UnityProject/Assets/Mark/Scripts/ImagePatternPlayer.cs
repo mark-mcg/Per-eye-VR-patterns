@@ -39,7 +39,7 @@ public class ImagePatternPlayer : PatternPlayer<ImagePattern>
 
     public override void DisplayNewPattern(ImagePattern pattern)
     {
-        Debug.Log("DisplayNewPattern called for pattern " + pattern);
+        // Debug.Log("DisplayNewPattern called for pattern " + pattern);
         if (currentPattern != null && ResetBothEyesOnNewPattern)
         {
             SetEyeToDefaults(LeftEye);
@@ -51,6 +51,7 @@ public class ImagePatternPlayer : PatternPlayer<ImagePattern>
             // Set the new pattern on the specified eye
             EyeDetails newEyeToDisplay = GetEye(pattern.eye);
             newEyeToDisplay.image.sprite = pattern.image;
+            newEyeToDisplay.image.color = new Color(255, 255, 255, 255); // make the image entirely opaque (assuming the PNG has an alpha channel)
             newEyeToDisplay.camera.backgroundColor = new Color(pattern.background.r, pattern.background.g, pattern.background.b, 255);
             currentPattern = pattern;
         }
@@ -69,6 +70,7 @@ public class ImagePatternPlayer : PatternPlayer<ImagePattern>
     private void SetEyeToDefaults(EyeDetails eye)
     {
         eye.image.sprite = null;
+        eye.image.color = new Color(0, 0, 0, 0); // make the image entirely transparent
         eye.camera.backgroundColor = new Color(DefaultBackground.r, DefaultBackground.g, DefaultBackground.b, 0);
     }
 }

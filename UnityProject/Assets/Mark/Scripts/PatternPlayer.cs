@@ -19,6 +19,30 @@ public abstract class PatternPlayer<T> : MonoBehaviour
 
     bool running = true;
 
+
+    float timeSince90 = 0;
+    float count = 0;
+
+    void CountPatterns()
+    {
+        if (timeSince90 == 0)
+        {
+            // first frame being rendered
+            timeSince90 = Time.time;
+        }
+
+        if (count == 90)
+        {
+            float timeElapsed = Time.time - timeSince90;
+            Debug.LogError("Rendered 90FPS in " + timeElapsed + " seconds, aiming for ~1 second if it's rendering correctly...");
+            timeSince90 = Time.time;
+            count = 0;
+        }
+        
+        count++;
+    }
+
+    
     /// <summary>
     /// Called for every frame. We'll keep track of how many frames a pattern has been rendered for 
     /// </summary>
@@ -28,6 +52,7 @@ public abstract class PatternPlayer<T> : MonoBehaviour
         {
             // First check how many frames this pattern has now been displayed for
             IncrementFrameCounter();
+            CountPatterns();
 
             if (currentPattern == null || currentPattern.frames == framesDisplayed)
             {
