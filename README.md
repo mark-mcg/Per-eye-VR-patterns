@@ -2,7 +2,7 @@
 
 This project can show images (e.g. alpha channel .pngs) with different background colours per-eye for a specified number of frames. Steps to run:
 
-1) Install Unity 2017.3.0 or higher (i tested on 2017.3.0f3).
+1) Install Unity 2017.4.29f1 LTS.
 2) Open the UnityProject folder in Unity
 3) Open the scene in Assets/Mark/Scenes
 4) With an Oculus Rift CV1 plugged in, hit play, and maximize the Game window. OR create a build and run it.
@@ -11,7 +11,7 @@ This project can show images (e.g. alpha channel .pngs) with different backgroun
 
 # Requirements
 
-Tested on Unity 2017.3.0 using an Oculus Rift CV1.
+Tested on Unity 2017.3.0 using an Oculus Rift CV1 and  2017.4.29f1 LTS using a Samsung Odyssey MR headset.
 
 # Notes / Potential Issues
 

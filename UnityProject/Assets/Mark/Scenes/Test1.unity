@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c4124f71101644e93fe64255d51c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FPSTarget: 60
   PatternSequence: {fileID: 1528559303}
   LeftEye:
     camera: {fileID: 485452839}

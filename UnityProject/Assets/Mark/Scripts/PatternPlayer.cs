@@ -7,35 +7,36 @@ public abstract class PatternPlayer<T> : MonoBehaviour
     where T : Pattern {
 
     public PatternSequence<T> sequence;
+    public int FPSTarget = 60;
 
     protected T currentPattern;
     protected float framesDisplayed = 0;
 
     public void Start()
     {
-        Application.targetFrameRate = 90; // not strictly necessary, but noting this here
+        Application.targetFrameRate = FPSTarget; // not strictly necessary, but noting this here
         QualitySettings.vSyncCount = 0; // again not strictly necessary, but important to remember vsync is ignored by the VR SDKs in favour of other ways of syncing frames
     }
 
     bool running = true;
 
 
-    float timeSince90 = 0;
+    float timeSinceTarget = 0;
     float count = 0;
 
     void CountPatterns()
     {
-        if (timeSince90 == 0)
+        if (timeSinceTarget == 0)
         {
             // first frame being rendered
-            timeSince90 = Time.time;
+            timeSinceTarget = Time.time;
         }
 
-        if (count == 90)
+        if (count == FPSTarget)
         {
-            float timeElapsed = Time.time - timeSince90;
-            Debug.LogError("Rendered 90FPS in " + timeElapsed + " seconds, aiming for ~1 second if it's rendering correctly...");
-            timeSince90 = Time.time;
+            float timeElapsed = Time.time - timeSinceTarget;
+            Debug.LogError("Rendered " +FPSTarget+ "FPS in " + timeElapsed + " seconds, aiming for ~1 second if it's rendering correctly...");
+            timeSinceTarget = Time.time;
             count = 0;
         }
         
