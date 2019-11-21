@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public abstract class PatternPlayer<T> : MonoBehaviour 
     where T : Pattern {
 
+    public Pattern.Eye renderEye;
+
     public PatternSequence<T> sequence;
     public int FPSTarget = 60;
 

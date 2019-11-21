@@ -28,7 +28,7 @@ public class ImagePatternPlayer : PatternPlayer<ImagePattern>
     {
         if (currentPattern != null)
         {
-            EyeDetails eyeToDisplay = GetEye(currentPattern.eye);
+            EyeDetails eyeToDisplay = GetEye(renderEye);
 
             if (eyeToDisplay.image.sprite == currentPattern.image)
                 framesDisplayed++;
@@ -49,7 +49,7 @@ public class ImagePatternPlayer : PatternPlayer<ImagePattern>
         if (pattern != null)
         {
             // Set the new pattern on the specified eye
-            EyeDetails newEyeToDisplay = GetEye(pattern.eye);
+            EyeDetails newEyeToDisplay = GetEye(renderEye);
             newEyeToDisplay.image.sprite = pattern.image;
             newEyeToDisplay.image.color = new Color(255, 255, 255, 255); // make the image entirely opaque (assuming the PNG has an alpha channel)
             newEyeToDisplay.camera.backgroundColor = new Color(pattern.background.r, pattern.background.g, pattern.background.b, 255);
